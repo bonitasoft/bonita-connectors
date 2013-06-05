@@ -410,7 +410,7 @@
     </repositories>
 
     <scm>
-        <developerConnection>scm:svn:https://svn.bonitasoft.org/bonita-connectors-6/tags/bonita-connectors/bonita-connectors-6.0.0</developerConnection>
+        <developerConnection>scm:svn:https://svn.bonitasoft.org/bonita-connectors-6/branches/bonita-connectors/bonita-connectors-6.0.x</developerConnection>
     </scm>
 
 </project>
