@@ -3,7 +3,7 @@
 	<groupId>org.bonitasoft.connectors</groupId>
 	<artifactId>bonita-connectors</artifactId>
 	<packaging>pom</packaging>
-	<version>6.0.1-SNAPSHOT</version>
+	<version>6.0.1</version>
 	<name>Bonita Connectors</name>
 
 	<properties>
@@ -410,7 +410,7 @@
     </repositories>
 
     <scm>
-        <developerConnection>scm:svn:https://svn.bonitasoft.org/bonita-connectors-6/branches/bonita-connectors/bonita-connectors-6.0.x</developerConnection>
+        <developerConnection>scm:svn:https://svn.bonitasoft.org/bonita-connectors-6/tags/bonita-connectors/bonita-connectors-6.0.1</developerConnection>
     </scm>
 
 </project>
