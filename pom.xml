@@ -11,7 +11,7 @@
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${jacoco.file}</sonar.jacoco.reportPath>
-        <bonita.engine.version>6.1.0-rc-02</bonita.engine.version>
+        <bonita.engine.version>6.1.0-SNAPSHOT</bonita.engine.version>
     </properties>
 
 	<organization>
