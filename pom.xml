@@ -11,7 +11,7 @@
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${jacoco.file}</sonar.jacoco.reportPath>
-        <bonita.engine.version>6.1.0-rc-02</bonita.engine.version>
+        <bonita.engine.version>6.1.0-rc-12</bonita.engine.version>
     </properties>
 
 	<organization>
@@ -359,6 +359,10 @@
                                 </replacement>
                                 <replacement>
                                     <token>.*:(.*):(.*):(.*):compile</token>
+                                    <value>&lt;jarDependency&gt;$1-$3.$2&lt;/jarDependency&gt;</value>
+                                </replacement>
+                                <replacement>
+                                    <token>.*:(.*):(.*):(.*):system</token>
                                     <value>&lt;jarDependency&gt;$1-$3.$2&lt;/jarDependency&gt;</value>
                                 </replacement>
                                 <replacement>
