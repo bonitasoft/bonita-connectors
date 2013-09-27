@@ -25,7 +25,7 @@
         <bonita.connector.ldap.version>6.1.0-rc-03</bonita.connector.ldap.version>
         <bonita.connector.salesforce.version>6.1.0-rc-05</bonita.connector.salesforce.version>
         <bonita.connector.sap.version>6.1.0-rc-08</bonita.connector.sap.version>
-        <bonita.connector.scripting.version>6.1.0-rc-04</bonita.connector.scripting.version>
+        <bonita.connector.scripting.version>6.1.0-rc-05</bonita.connector.scripting.version>
         <bonita.connector.sugarcrm.version>6.1.0-rc-08</bonita.connector.sugarcrm.version>
         <bonita.connector.talend.version>6.1.0-rc-04</bonita.connector.talend.version>
         <bonita.connector.webservice.version>6.1.0-rc-06</bonita.connector.webservice.version>
