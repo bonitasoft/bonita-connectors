@@ -14,7 +14,7 @@
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${jacoco.file}</sonar.jacoco.reportPath>
 		
-        <bonita.engine.version>6.1.0-rc-20</bonita.engine.version>
+        <bonita.engine.version>6.1.0-rc-21</bonita.engine.version>
         
         <bonita.connector.alfresco.version>6.1.0-rc-07</bonita.connector.alfresco.version>
         <bonita.connector.database.version>6.1.0-rc-11</bonita.connector.database.version>
