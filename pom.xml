@@ -27,7 +27,7 @@
         <bonita.connector.salesforce.version>6.1.0-rc-08</bonita.connector.salesforce.version>
         <bonita.connector.sap.version>6.1.0-rc-10</bonita.connector.sap.version>
         <bonita.connector.scripting.version>6.1.0-rc-07</bonita.connector.scripting.version>
-        <bonita.connector.sugarcrm.version>6.1.0-rc-11</bonita.connector.sugarcrm.version>
+        <bonita.connector.sugarcrm.version>6.1.0-rc-10</bonita.connector.sugarcrm.version>
         <bonita.connector.talend.version>6.1.0-rc-08</bonita.connector.talend.version>
         <bonita.connector.webservice.version>6.1.0-rc-08</bonita.connector.webservice.version>
         <bonita.connector.twitter.version>6.1.0-rc-19</bonita.connector.twitter.version>
@@ -74,6 +74,11 @@
 				<artifactId>bonita-commons-test</artifactId>
 				<version>${bonita.engine.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.bonitasoft.connectors</groupId>
+				<artifactId>bonita-connectors-assembly</artifactId>
+				<version>${bonita.assembly.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -89,13 +94,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>2.4</version>
-					<dependencies>
-						<dependency>
-							<groupId>org.bonitasoft.connectors</groupId>
-							<artifactId>bonita-connectors-assembly</artifactId>
-							<version>${bonita.assembly.version}</version>
-						</dependency>
-					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -410,22 +408,22 @@
         </plugins>
 	</build>
 
-<!--     <repositories> -->
-<!--         <repository> -->
-<!--             <id>jboss-public-repository-group</id> -->
-<!--             <name>JBoss Public Maven Repository Group</name> -->
-<!--             <url>https://repository.jboss.org/nexus/content/groups/public/</url> -->
-<!--             <layout>default</layout> -->
-<!--             <releases> -->
-<!--                 <enabled>true</enabled> -->
-<!--                 <updatePolicy>never</updatePolicy> -->
-<!--             </releases> -->
-<!--             <snapshots> -->
-<!--                 <enabled>false</enabled> -->
-<!--                 <updatePolicy>never</updatePolicy> -->
-<!--             </snapshots> -->
-<!--         </repository> -->
-<!--     </repositories> -->
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <scm>
         <developerConnection>scm:git:git@github.com:bonitasoft/bonita-connectors.git</developerConnection>
