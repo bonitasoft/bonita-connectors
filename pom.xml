@@ -79,6 +79,11 @@
 				<artifactId>bonita-commons-test</artifactId>
 				<version>${bonita.engine.version}</version>
 			</dependency>
+			<dependency>
+				 <groupId>org.bonitasoft.connectors</groupId>
+                 <artifactId>bonita-connectors-assembly</artifactId>
+                 <version>${bonita.assembly.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
