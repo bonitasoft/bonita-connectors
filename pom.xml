@@ -24,7 +24,7 @@
         <bonita.connector.googlecalendar.version>6.1.0-rc-06</bonita.connector.googlecalendar.version>
         <bonita.connector.jasper.version>6.1.0-rc-09</bonita.connector.jasper.version>
         <bonita.connector.ldap.version>6.1.0-rc-05</bonita.connector.ldap.version>
-        <bonita.connector.salesforce.version>6.1.0-rc-07</bonita.connector.salesforce.version>
+        <bonita.connector.salesforce.version>6.1.0-rc-08</bonita.connector.salesforce.version>
         <bonita.connector.sap.version>6.1.0-rc-10</bonita.connector.sap.version>
         <bonita.connector.scripting.version>6.1.0-rc-07</bonita.connector.scripting.version>
         <bonita.connector.sugarcrm.version>6.1.0-rc-10</bonita.connector.sugarcrm.version>
