@@ -15,7 +15,7 @@
 		<sonar.jacoco.reportPath>${jacoco.file}</sonar.jacoco.reportPath>
 		
         <bonita.engine.version>6.1.0-rc-21</bonita.engine.version>
-        <bonita.assembly.version>6.1.0</bonita.assembly.version>
+    
         
         <bonita.connector.alfresco.version>6.1.0-rc-09</bonita.connector.alfresco.version>
         <bonita.connector.database.version>6.1.0-rc-16</bonita.connector.database.version>
@@ -89,7 +89,9 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>2.4</version>
-					
+					  <configuration>
+                  		  <descriptor>src/main/resources/assemblies/connector-descriptor.xml</descriptor>
+               		  </configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
