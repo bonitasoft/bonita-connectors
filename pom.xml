@@ -21,7 +21,7 @@
         <bonita.connector.database.version>6.1.0-rc-16</bonita.connector.database.version>
         <bonita.connector.cmis.version>6.1.0-rc-10</bonita.connector.cmis.version>
         <bonita.connector.email.version>6.1.0-rc-13</bonita.connector.email.version>
-        <bonita.connector.googlecalendar.version>6.1.0-rc-06</bonita.connector.googlecalendar.version>
+        <bonita.connector.googlecalendar.version>6.1.0-rc-07</bonita.connector.googlecalendar.version>
         <bonita.connector.jasper.version>6.1.0-rc-09</bonita.connector.jasper.version>
         <bonita.connector.ldap.version>6.1.0-rc-05</bonita.connector.ldap.version>
         <bonita.connector.salesforce.version>6.1.0-rc-08</bonita.connector.salesforce.version>
