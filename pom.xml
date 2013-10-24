@@ -3,7 +3,7 @@
 	
 	<groupId>org.bonitasoft.connectors</groupId>
 	<artifactId>bonita-connectors</artifactId>
-	<version>6.2.0-SNAPSHOT</version>
+	<version>6.1.0-SNAPSHOT</version>
 	
 	<packaging>pom</packaging>
 	<name>Bonita Connectors</name>
@@ -25,7 +25,7 @@
         <bonita.connector.jasper.version>6.1.0</bonita.connector.jasper.version>
         <bonita.connector.ldap.version>6.1.0</bonita.connector.ldap.version>
         <bonita.connector.salesforce.version>6.1.0</bonita.connector.salesforce.version>
-        <bonita.connector.sap.version>6.1.0-rc-12</bonita.connector.sap.version>
+        <bonita.connector.sap.version>6.1.0</bonita.connector.sap.version>
         <bonita.connector.scripting.version>6.1.0</bonita.connector.scripting.version>
         <bonita.connector.sugarcrm.version>6.1.0</bonita.connector.sugarcrm.version>
         <bonita.connector.talend.version>6.1.0</bonita.connector.talend.version>
