@@ -3,7 +3,7 @@
 	
 	<groupId>org.bonitasoft.connectors</groupId>
 	<artifactId>bonita-connectors</artifactId>
-	<version>6.1.0</version>
+	<version>6.2.0-SNAPSHOT</version>
 	
 	<packaging>pom</packaging>
 	<name>Bonita Connectors</name>
@@ -425,7 +425,7 @@
         <developerConnection>scm:git:git@github.com:bonitasoft/bonita-connectors.git</developerConnection>
         <connection>scm:git:git@github.com:bonitasoft/bonita-connectors.git</connection>
         <url>https://github.com/bonitasoft/bonita-connectors</url>
-        <tag>bonita-connectors-6.1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
