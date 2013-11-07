@@ -18,7 +18,7 @@
         <bonita.assembly.version>6.1.0</bonita.assembly.version>
         
         <bonita.connector.alfresco.version>6.1.0</bonita.connector.alfresco.version>
-        <bonita.connector.database.version>6.1.1-rc-01</bonita.connector.database.version>
+        <bonita.connector.database.version>6.1.1</bonita.connector.database.version>
         <bonita.connector.cmis.version>6.1.0</bonita.connector.cmis.version>
         <bonita.connector.email.version>6.1.0</bonita.connector.email.version>
         <bonita.connector.googlecalendar.version>6.1.0</bonita.connector.googlecalendar.version>
