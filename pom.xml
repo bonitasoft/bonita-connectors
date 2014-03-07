@@ -1,9 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>org.bonitasoft.connectors</groupId>
 	<artifactId>bonita-connectors</artifactId>
+	<version>1.0.0</version>
+
 	<packaging>pom</packaging>
-	<version>6.1.0-SNAPSHOT</version>
 	<name>Bonita Connectors</name>
 
 	<properties>
@@ -11,8 +14,9 @@
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${jacoco.file}</sonar.jacoco.reportPath>
-        <bonita.engine.version>6.1.0-SNAPSHOT</bonita.engine.version>
-    </properties>
+		<assembly.version>1.0.0</assembly.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<organization>
 		<name>BonitaSoft</name>
@@ -30,51 +34,28 @@
 		<maven>3.0</maven>
 	</prerequisites>
 
-	<dependencies>
-		<dependency>
-			<artifactId>bonita-common</artifactId>
-			<groupId>org.bonitasoft.engine</groupId>
-            <scope>provided</scope>
-		</dependency>
-	</dependencies>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.10</version>
-			</dependency>
-			<dependency>
-				<artifactId>bonita-common</artifactId>
-				<groupId>org.bonitasoft.engine</groupId>
-				<version>${bonita.engine.version}</version>
-			</dependency>
-            <dependency>
-                <groupId>org.bonitasoft.connectors</groupId>
-                <artifactId>bonita-connectors-assembly</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-			<dependency>
-				<groupId>org.bonitasoft.engine</groupId>
-				<artifactId>bonita-commons-test</artifactId>
-				<version>${bonita.engine.version}</version>
+				<version>4.11</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
-    <build>
+	<modules>
+		<module>bonita-connectors-assembly</module>
+	</modules>
+
+	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>1.7</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.4</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -90,16 +71,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>2.6</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-ear-plugin</artifactId>
-					<version>2.6</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-ejb-plugin</artifactId>
-					<version>2.3</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -125,16 +96,14 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
 					<version>2.4.1</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>2.5</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-shade-plugin</artifactId>
-					<version>1.5</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -147,16 +116,29 @@
 					<version>2.10</version>
 				</plugin>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-					<version>2.1.1</version>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<dependencies>
+						<dependency>
+							<groupId>org.bonitasoft.connectors</groupId>
+							<artifactId>bonita-connectors-assembly</artifactId>
+							<version>${assembly.version}</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<id>assemble</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+							<configuration>
+								<descriptorRefs>
+									<descriptorRef>connector-assembly</descriptorRef>
+								</descriptorRefs>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
-				<plugin>
-					<groupId>org.codehaus.cargo</groupId>
-					<artifactId>cargo-maven2-plugin</artifactId>
-					<version>1.1.3</version>
-				</plugin>
-
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -225,7 +207,7 @@
 						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
-            </plugins>
+			</plugins>
 		</pluginManagement>
 
 		<plugins>
@@ -304,112 +286,142 @@
 					</execution>
 				</executions>
 			</plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.4</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <id>list</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>list</goal>
-                        </goals>
-                        <configuration>
-                            <outputFile>${project.build.directory}/dependencies.xml</outputFile>
-                            <includeScope>compile</includeScope>
-                            <excludeScope>provided</excludeScope>
-                            <excludeArtifactIds>bonita-common</excludeArtifactIds>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.google.code.maven-replacer-plugin</groupId>
-                <artifactId>replacer</artifactId>
-                <version>1.5.1</version>
-                <executions>
-                    <execution>
-                        <id>jarDependency generation</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>replace</goal>
-                        </goals>
-                        <configuration>
-                            <file>target/dependencies.xml</file>
-                            <replacements>
-                                <replacement>
-                                    <token>\A</token>
-                                    <value>&lt;jarDependencies&gt;</value>
-                                </replacement>
-                                <replacement>
-                                    <token>The following files have been resolved:</token>
-                                    <value>&lt;jarDependency&gt;${project.build.finalName}.jar&lt;/jarDependency&gt;</value>
-                                </replacement>
-                                <replacement>
-                                    <token>.*-def:.*\n</token>
-                                </replacement>
-                                <replacement>
-                                    <token>.*provided\n</token>
-                                </replacement>
-                                <replacement>
-                                    <token>.*:(.*):(.*):(.*):compile</token>
-                                    <value>&lt;jarDependency&gt;$1-$3.$2&lt;/jarDependency&gt;</value>
-                                </replacement>
-                                <replacement>
-                                    <token>\z</token>
-                                    <value>&lt;/jarDependencies&gt;</value>
-                                </replacement>
-                            </replacements>
-                            <ignoreErrors>true</ignoreErrors>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>impl file generation</id>
-                        <goals>
-                            <goal>replace</goal>
-                        </goals>
-                        <configuration>
-                            <file>target/classes/${implementation.id}.impl</file>
-                            <token>$Dependencies$</token>
-                            <valueFile>${basedir}/target/dependencies.xml</valueFile>
-                            <regex>false</regex>
-                            <ignoreErrors>true</ignoreErrors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>list</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>list</goal>
+						</goals>
+						<configuration>
+							<outputFile>${project.build.directory}/dependencies.xml</outputFile>
+							<includeScope>compile</includeScope>
+							<excludeScope>provided</excludeScope>
+							<excludeArtifactIds>bonita-common</excludeArtifactIds>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.1</version>
+				<executions>
+					<execution>
+						<id>jarDependency generation</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<file>target/dependencies.xml</file>
+							<replacements>
+								<replacement>
+									<token>\A</token>
+									<value>&lt;jarDependencies&gt;</value>
+								</replacement>
+								<replacement>
+									<token>The following files have been resolved:</token>
+									<value>&lt;jarDependency&gt;${project.build.finalName}.jar&lt;/jarDependency&gt;</value>
+								</replacement>
+								<replacement>
+									<token>.*-def:.*\n</token>
+								</replacement>
+								<replacement>
+									<token>.*provided\n</token>
+								</replacement>
+								<replacement>
+									<token>.*:(.*):(.*):(.*):compile</token>
+									<value>&lt;jarDependency&gt;$1-$3.$2&lt;/jarDependency&gt;</value>
+								</replacement>
+								<replacement>
+									<token>.*:(.*):(.*):(.*):system</token>
+									<value>&lt;jarDependency&gt;$1-$3.$2&lt;/jarDependency&gt;</value>
+								</replacement>
+								<replacement>
+									<token>\z</token>
+									<value>&lt;/jarDependencies&gt;</value>
+								</replacement>
+							</replacements>
+							<ignoreErrors>true</ignoreErrors>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add jar dependencies in .impl file</id>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<file>target/classes/${implementation.id}.impl</file>
+							<token>$Dependencies$</token>
+							<valueFile>${basedir}/target/dependencies.xml</valueFile>
+							<regex>false</regex>
+							<ignoreErrors>true</ignoreErrors>
+						</configuration>
+					</execution>
+					<execution>
+						<id>set connector implementation version in .impl file</id>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<file>target/classes/${implementation.id}.impl</file>
+							<token>$implementation.version$</token>
+							<value>${project.version}</value>
+							<regex>false</regex>
+							<ignoreErrors>true</ignoreErrors>
+						</configuration>
+					</execution>
+					<execution>
+						<id>set connector definition version in .impl file</id>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<file>target/classes/${implementation.id}.impl</file>
+							<token>$definition.version$</token>
+							<value>${definition.version}</value>
+							<regex>false</regex>
+							<ignoreErrors>true</ignoreErrors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
-    <repositories>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-            <layout>default</layout>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
 
-    <scm>
-        <developerConnection>scm:git:git@github.com:bonitasoft/bonita-connectors.git</developerConnection>
-        <connection>scm:git:git@github.com:bonitasoft/bonita-connectors.git</connection>
-        <url>https://github.com/bonitasoft/bonita-connectors</url>
-        <tag>HEAD</tag>
-    </scm>
+
+	<repositories>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<scm>
+		<developerConnection>scm:git:git@github.com:bonitasoft/bonita-connectors.git</developerConnection>
+		<connection>scm:git:git@github.com:bonitasoft/bonita-connectors.git</connection>
+		<url>https://github.com/bonitasoft/bonita-connectors</url>
+		<tag>HEAD</tag>
+	</scm>
 
 
 </project>
