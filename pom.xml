@@ -354,7 +354,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>impl file generation</id>
+						<id>add jar dependencies in .impl file</id>
 						<goals>
 							<goal>replace</goal>
 						</goals>
@@ -362,6 +362,32 @@
 							<file>target/classes/${implementation.id}.impl</file>
 							<token>$Dependencies$</token>
 							<valueFile>${basedir}/target/dependencies.xml</valueFile>
+							<regex>false</regex>
+							<ignoreErrors>true</ignoreErrors>
+						</configuration>
+					</execution>
+					<execution>
+						<id>set connector implementation version in .impl file</id>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<file>target/classes/${implementation.id}.impl</file>
+							<token>$implementation.version$</token>
+							<value>${project.version}</value>
+							<regex>false</regex>
+							<ignoreErrors>true</ignoreErrors>
+						</configuration>
+					</execution>
+					<execution>
+						<id>set connector definition version in .impl file</id>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<file>target/classes/${implementation.id}.impl</file>
+							<token>$definition.version$</token>
+							<value>${definition.version}</value>
 							<regex>false</regex>
 							<ignoreErrors>true</ignoreErrors>
 						</configuration>
