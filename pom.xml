@@ -4,7 +4,7 @@
 
 	<groupId>org.bonitasoft.connectors</groupId>
 	<artifactId>bonita-connectors</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<packaging>pom</packaging>
 	<name>Bonita Connectors</name>
@@ -359,7 +359,7 @@
 							<goal>replace</goal>
 						</goals>
 						<configuration>
-							<file>target/classes/${implementation.id}.impl</file>
+							<filesToInclude>target/classes/*.impl</filesToInclude>
 							<token>$Dependencies$</token>
 							<valueFile>${basedir}/target/dependencies.xml</valueFile>
 							<regex>false</regex>
@@ -372,7 +372,7 @@
 							<goal>replace</goal>
 						</goals>
 						<configuration>
-							<file>target/classes/${implementation.id}.impl</file>
+							<filesToInclude>target/classes/*.impl</filesToInclude>
 							<token>$implementation.version$</token>
 							<value>${project.version}</value>
 							<regex>false</regex>
@@ -380,14 +380,27 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>set connector definition version in .impl file</id>
+						<id>set connector definition version in .impl</id>
 						<goals>
 							<goal>replace</goal>
 						</goals>
 						<configuration>
-							<file>target/classes/${implementation.id}.impl</file>
+							<filesToInclude>target/classes/*.impl</filesToInclude>
 							<token>$definition.version$</token>
 							<value>${definition.version}</value>
+							<regex>false</regex>
+							<ignoreErrors>true</ignoreErrors>
+						</configuration>
+					</execution>
+					<execution>
+						<id>set connector definition version in .def</id>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<filesToInclude>target/classes/*.def</filesToInclude>
+							<token>$definition.version$</token>
+							<value>${project.version}</value>
 							<regex>false</regex>
 							<ignoreErrors>true</ignoreErrors>
 						</configuration>
