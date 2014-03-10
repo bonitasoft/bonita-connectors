@@ -5,9 +5,8 @@
 	<parent>
 		<groupId>org.bonitasoft.connectors</groupId>
 		<artifactId>bonita-connectors</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
-
 
 	<artifactId>bonita-connectors-assembly</artifactId>
 
